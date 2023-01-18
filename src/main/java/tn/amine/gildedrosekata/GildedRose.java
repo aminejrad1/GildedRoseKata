@@ -11,15 +11,17 @@ public class GildedRose {
        add(new Item("Coffee", 0, 50));
        add(new Item("Aged Brie", 10, 30));
        add(new Item("Old Smelly Boot", 10, 0));
+       add(new Item("Aged Brie", 10, 50));
     }};
 
     public void updateParamsMethod(Item item, int quality, int sellIn) {
         item.setSellIn(item.getSellIn()-sellIn);
         if(item.getQuality()!=0)
         {
-            if(item.getName().equals("Aged Brie") && item.getQuality()<50)
+            if(item.getName().equals("Aged Brie"))
             {
-                item.setQuality(item.getQuality()+quality);
+                if(item.getQuality()<50)
+                    item.setQuality(item.getQuality()+quality);
             }
             else {
                 item.setQuality(item.getQuality()-quality);
