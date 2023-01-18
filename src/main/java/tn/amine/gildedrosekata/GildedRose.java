@@ -15,12 +15,18 @@ public class GildedRose {
        add(new Item("Sulfuras", 10, 80));
        add(new Item("Aged Brie", 10, 30));
        add(new Item("Aged Brie", 5, 30));
+       add(new ConjuredItem("Conjured item", 10, 22));
     }};
 
     public void updateParamsMethod(Item item, int quality, int sellIn) {
         item.setSellIn(item.getSellIn()-sellIn);
         if(item.getQuality()!=0)
         {
+            if(item.getClass().equals(ConjuredItem.class)) {
+                item.setQuality(item.getQuality() - 2);
+                return;
+            }
+            else
             if(item.getName().equals("Sulfuras"))
                 return;
             if(item.getName().equals("Aged Brie"))
