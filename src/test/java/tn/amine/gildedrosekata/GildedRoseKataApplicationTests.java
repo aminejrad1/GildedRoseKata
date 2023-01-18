@@ -19,4 +19,11 @@ class GildedRoseKataApplicationTests {
         assertEquals(48, gildedRose.items.get(1).getQuality());
     }
 
+    @Test
+    void testUpdateQualityOfAgedBrie() {
+        GildedRose gildedRose= new GildedRose();
+        gildedRose.updateQuality();
+        assertEquals(31, gildedRose.items.get(2).getQuality());
+    }
+
 }
