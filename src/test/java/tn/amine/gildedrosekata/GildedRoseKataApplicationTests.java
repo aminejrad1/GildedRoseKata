@@ -26,4 +26,11 @@ class GildedRoseKataApplicationTests {
         assertEquals(31, gildedRose.items.get(2).getQuality());
     }
 
+    @Test
+    void testMakeSureQualityIsNeverBelowZero() {
+        GildedRose gildedRose= new GildedRose();
+        gildedRose.updateQuality();
+        assertEquals(0, gildedRose.items.get(3).getQuality());
+    }
+
 }
