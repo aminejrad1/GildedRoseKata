@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Item {
     public String name;
-    private long SellIn;
+    private int SellIn;
     private long Quality;
 }
