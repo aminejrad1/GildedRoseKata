@@ -9,10 +9,11 @@ public class GildedRose {
     public List<Item> items = new ArrayList<>() {{
        add(new Item("Chocolate", 10, 50));
        add(new Item("Coffee", 0, 50));
-       add(new Item("Aged Brie", 10, 30));
+       add(new Item("Aged Brie", 15, 30));
        add(new Item("Old Smelly Boot", 10, 0));
        add(new Item("Aged Brie", 10, 50));
        add(new Item("Sulfuras", 10, 80));
+        add(new Item("Aged Brie", 10, 30));
     }};
 
     public void updateParamsMethod(Item item, int quality, int sellIn) {
@@ -24,7 +25,13 @@ public class GildedRose {
             if(item.getName().equals("Aged Brie"))
             {
                 if(item.getQuality()<50)
-                    item.setQuality(item.getQuality()+quality);
+                {
+                    if(item.getSellIn()<=10)
+                        item.setQuality(item.getQuality()+2);
+                    else
+                        item.setQuality(item.getQuality()+quality);
+                }
+
             }
             else {
                 item.setQuality(item.getQuality()-quality);

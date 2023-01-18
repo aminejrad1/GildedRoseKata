@@ -47,4 +47,11 @@ class GildedRoseKataApplicationTests {
         assertEquals(80, gildedRose.items.get(5).getQuality());
     }
 
+    @Test
+    void testUpdateQualityAgedBrie10daysOrLess() {
+        GildedRose gildedRose= new GildedRose();
+        gildedRose.updateQuality();
+        assertEquals(32, gildedRose.items.get(6).getQuality());
+    }
+
 }
