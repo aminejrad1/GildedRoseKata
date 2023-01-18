@@ -1,21 +1,27 @@
 package tn.amine.gildedrosekata;
 
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 public class GildedRose {
-    public static List<Item> items = new ArrayList<>() {{
+    public List<Item> items = new ArrayList<>() {{
        add(new Item("Chocolate", 10, 50));
+       add(new Item("Coffee", 0, 50));
     }};
 
-    public static void updateQuality() {
+    public void updateQuality() {
         items.forEach(
                 item -> {
-                    item.setQuality(item.getQuality()-1);
-                    item.setSellIn(item.getSellIn()-1);
+                    if(item.getSellIn()==0)
+                    {
+                        item.setQuality(item.getQuality()-2);
+                    }
+                    else {
+                        item.setQuality(item.getQuality()-1);
+                        item.setSellIn(item.getSellIn()-1);
+                    }
                 }
         );
     }
